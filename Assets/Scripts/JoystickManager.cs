@@ -42,7 +42,7 @@ public class JoystickManager : MonoBehaviour
         }
         if(GameStarting == true)
         {
-            if (rb.velocity.magnitude > 0)
+            if (rb.linearVelocity.magnitude > 0)
             {
                 anim.Play("CharacterBody");
             }
@@ -53,12 +53,12 @@ public class JoystickManager : MonoBehaviour
             AnimatorController();
             if (joystickMovement.joystickVec.y != 0)
             {
-                rb.velocity = new Vector2(joystickMovement.joystickVec.x * playerSpeed, joystickMovement.joystickVec.y * playerSpeed);
+                rb.linearVelocity = new Vector2(joystickMovement.joystickVec.x * playerSpeed, joystickMovement.joystickVec.y * playerSpeed);
 
             }
             else
             {
-                rb.velocity = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
             }
         }
         if(Boolean.GameStart == false)

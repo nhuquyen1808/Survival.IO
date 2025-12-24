@@ -15,7 +15,7 @@ public class ballManager : MonoBehaviour
     }
     void Update()
     {
-        LastVeclocity = rb.velocity;
+        LastVeclocity = rb.linearVelocity;
         if(CheckPos == true)
         {
             rb.AddForce(transform.right * 2);
@@ -32,6 +32,6 @@ public class ballManager : MonoBehaviour
     {
         var speed = LastVeclocity.magnitude;
         var direction = Vector3.Reflect(LastVeclocity.normalized, collision.contacts[0].normal);
-        rb.velocity = direction * Mathf.Max(speed, 0f);
+        rb.linearVelocity = direction * Mathf.Max(speed, 0f);
     }
 }
